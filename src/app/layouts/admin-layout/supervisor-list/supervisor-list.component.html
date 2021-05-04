@@ -1,0 +1,82 @@
+<div class="panel-header panel-header-sm"></div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Liste des superviseurs</h4>
+        </div>
+        <div class="col-sm-11">
+          <div
+            class="btn-group btn-group-toggle float-right"
+            data-toggle="buttons"
+          >
+            <button
+              (click)="goToAddPage('addSupervisor')"
+              class="btn btn-fill btn-success"
+            >
+              Ajouter un superviseur
+            </button>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table " >
+              <thead class="text-primary">
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>Numéro de téléphone</th>
+                  <th>Adresse</th>
+                  <th>Date de naissance</th>
+                  <th class="text-center">date d'embauche</th>
+                  <th>Email</th>
+                  <th>action</th>
+
+              </thead>
+              <tbody>
+                <tr *ngFor="let l of list">
+                  <td>{{l.IDSupervisor}}</td>
+
+                  <td>{{l.Nom}}</td>
+                  <td>{{l.prenom}}</td>
+                  <td>{{l.Telephone}}</td>
+                  <td>{{l.Adresse}}</td>
+                  <td class="text-center">
+                    {{l.DateNaissance}}
+                  </td>
+                  <td>{{l.DateEmbauche}}</td>
+                  <td>{{l.Email}}</td>
+                  <td>
+                    <div class="col-sm-11">
+                      <div
+                        class="btn-group btn-group-toggle float-right"
+                        data-toggle="buttons">
+                        <label>
+                          <span
+                            class="d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                            [routerLink]="['/updateSupervisor']"
+                          >
+                            <i class="now-ui-icons arrows-1_refresh-69 text-success"></i>
+                          </span>
+                        </label>
+                        <label>
+                          <span
+                            class="d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                            (click)="delete(el)"
+                          >
+                            <i class="now-ui-icons ui-1_simple-remove  text-danger"></i>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
